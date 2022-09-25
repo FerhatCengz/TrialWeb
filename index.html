@@ -1,12 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferhat Cengiz</title>
-</head>
-<body>
-    <h1>Merhaba Hoşgeldiniz</h1>
-</body>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FC Yazılım Okey Skor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.min.css"
+      integrity="sha512-doewDSLNwoD1ZCdA1D1LXbbdNlI4uZv7vICMrzxfshHmzzyFNhajLEgH/uigrbOi8ETIftUGBkyLnbyDOU5rpA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="d-flex justify-content-center">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-info mt-4 rounded-pill"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Oyuncular Biçimlendir
+      </button>
+    </div>
+    <br />
+
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Oyuncu Ekleme / Güncelleme Paneli
+            </h5>
+                <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <button id="kuzenlerleBtn" class="btn btn-sm btn-info">Kuzenlerle Oyna</button>
+            <input
+              type="text"
+              class="mt-2 form-control"
+              id="input_Oyuncu1"
+              placeholder="Oyuncu 1 İsmi"
+            />
+            <input
+              type="text"
+              class="mt-2 form-control"
+              id="input_Oyuncu2"
+              placeholder="Oyuncu 2 İsmi"
+            />
+            <input
+              type="text"
+              class="mt-2 form-control"
+              id="input_Oyuncu3"
+              placeholder="Oyuncu 3 İsmi"
+            />
+            <input
+              type="text"
+              class="mt-2 form-control"
+              id="input_Oyuncu4"
+              placeholder="Oyuncu 4 İsmi"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Vazgeç
+            </button>
+            <button
+              type="button"
+              data-dismiss="modal"
+              class="btn btn-success"
+              id="btnSetPlayer"
+            >
+              Kaydet
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-danger ml-4" id="gameSkor">El Puanı Ekle</button>
+      <a class="btn btn-success mr-4" href="index.html">Hesapla</a>
+      <button class="btn btn-danger ml-4" id="refreshGame">Sıfırla</button>
+    </div>
+
+    <table class="mt-4 table table-bordered text-center">
+      <thead class="table-warning">
+        <tr>
+          <th id="th_Oyuncu1">Oyuncu1</th>
+          <th id="th_Oyuncu2">Oyuncu2</th>
+          <th id="th_Oyuncu3">Oyuncu3</th>
+          <th id="th_Oyuncu4">Oyuncu4</th>
+        </tr>
+      </thead>
+      <tbody class="table" id="dataTable"></tbody>
+    </table>
+    <div class="d-flex justify-content-around">
+      <p class="lead" id="spn_1">0</p>
+      <p class="lead" id="spn_2">0</p>
+      <p class="lead" id="spn_3">0</p>
+      <p class="lead" id="spn_4">0</p>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.29/sweetalert2.min.js"
+    integrity="sha512-gCB2+0sWe4La5U90EqaPP2t58EczKkQE9UoCpnkG2EDSOOihgX/6MiT3MC4jYVEX03pv6Ydk1xybLG/AtN+3KQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.0/firebase.js"></script>
+  <script src="app.js"></script>
 </html>
